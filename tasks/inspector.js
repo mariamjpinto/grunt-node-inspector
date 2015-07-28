@@ -19,7 +19,7 @@ module.exports = function (grunt) {
       'save-live-edit',
       'readTimeout',
       'stack-trace-limit',
-      'no-preload',
+      'preload',
       'hidden'
     ].forEach(function (option) {
       if (option in options) {
