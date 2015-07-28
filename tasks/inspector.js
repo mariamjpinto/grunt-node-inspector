@@ -23,12 +23,13 @@ module.exports = function (grunt) {
       'hidden'
     ].forEach(function (option) {
       if (option in options) {
-        args.push('--' + option);
         if (option === 'hidden') {
-          args.push(JSON.stringify(options[option]));
-          return;
+          options[option].forEach(function (file) {
+            args.push('--' + option + ' ' + file);
+          });
+        } else {
+          args.push('--' + option + '=' + options[option]);
         }
-        args.push(options[option]);
       }
     });
 
